@@ -40,6 +40,10 @@ function handleMessage(message) {
   else if(message.includes(' random')){
     randomJoke();
   }
+
+  else if(message.includes(' help')){
+    runHelp();
+  }
 }
 
 
@@ -82,3 +86,12 @@ function randomJoke()
   }
 }
 
+//Show bot help
+function runHelp()
+{
+  const params = {
+    icon_emoji: ':question:'
+  };
+
+  bot.postMessageToChannel('general', `Type @jokebot with either 'chucknorris', 'yomomma' or 'random' to hear a joke`, params);
+}
