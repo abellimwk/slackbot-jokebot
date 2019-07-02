@@ -32,6 +32,10 @@ function handleMessage(message) {
   if(message.includes(' chucknorris')) {
     chuckJoke();
   }
+
+  if(message.includes(' yomomma')){
+    yoMommaJoke();
+  }
 }
 
 
@@ -45,5 +49,18 @@ function chuckJoke()
     };
 
     bot.postMessageToChannel('general', `Chuck Norris: ${joke}`, params);
+  });
+}
+
+//Tell a Yo Momma Joke
+function yoMommaJoke()
+{
+  Axios.get('https://api.yomomma.info').then(res => {
+    const joke = res.data.joke;
+    const params = {
+      icon_emoji: ':laughing:'
+    };
+
+    bot.postMessageToChannel('general', `Yo Momma: ${joke}`, params);
   });
 }
