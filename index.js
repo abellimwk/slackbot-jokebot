@@ -33,8 +33,12 @@ function handleMessage(message) {
     chuckJoke();
   }
 
-  if(message.includes(' yomomma')){
+  else if(message.includes(' yomomma')){
     yoMommaJoke();
+  }
+
+  else if(message.includes(' random')){
+    randomJoke();
   }
 }
 
@@ -64,3 +68,17 @@ function yoMommaJoke()
     bot.postMessageToChannel('general', `Yo Momma: ${joke}`, params);
   });
 }
+
+//Tell a Random Joke
+function randomJoke()
+{
+  const rand = Math.floor(Math.random() * 2);
+  if (rand == 0) {
+    chuckJoke();
+  }
+
+  else if (rand == 1) {
+    yoMommaJoke();
+  }
+}
+
